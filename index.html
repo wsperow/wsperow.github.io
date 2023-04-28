@@ -3,36 +3,9 @@
     <head>
         <title>BartCOM 2 Chat</title>
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-        <script>
-            function login() {
-                if(document.getElementById("user").value != "") {
-                    document.getElementById("userLabel").style.display = "none"
-                    document.getElementById("user").style.display = "none"
-                    document.getElementById("login").style.display = "none"
-                    document.getElementById("messageBox").style.display = "block"
-                    document.getElementById("send").style.display = "block"
-                    window.clientUsername = document.getElementById("user").value
-                    ws.send(`${clientUsername} joined the chat`)
-                };
-            };
-            window.ws = new WebSocket("ws://localhost:8080");
-            ws.onopen = function() {
-                alert("Connected to Server");
-            };
-            ws.onmessage = function ({data}) {
-                //document.getElementById("chat").innerHTML += `<li>${data}</li>`;
-                document.body.innerHTML += "<br>" + data
-            };
-        </script>
     </head>
     <body style="background-color: chocolate;">
-        <h1>BartCOM 2</h1>
-        <label for="user" id="userLabel">Username:</label>
-        <input type="text" id="user" name="user" value="">
-        <button type="button" id="login" onclick="login()">Go!</button>
-        <input type="text" id="messageBox" placeholder="Type something..." style="margin-top: 20px; display: none;">
-        <button type="button" id="send" onclick="ws.send(clientUsername + ': ' + messageBox.value);" style="display: none;">Send</button><br>
-        <ol id="chat"></ol>
-        
+        <h1>BartCOM 2 Versions</h1><br>
+        <a href="/v1a.html">Version 1 Alpha</a>
     </body>
 </html>
