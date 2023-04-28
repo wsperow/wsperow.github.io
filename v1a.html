@@ -15,7 +15,7 @@
                     ws.send(`${clientUsername} joined the chat`)
                 };
             };
-            window.ws = new WebSocket("ws://localhost:8080");
+            window.ws = new WebSocket("ws://68.42.180.50:8080");
             ws.onopen = function() {
                 alert("Connected to Server");
             };
