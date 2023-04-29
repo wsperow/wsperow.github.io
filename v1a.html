@@ -26,7 +26,10 @@
         </script>
     </head>
     <body style="background-color: chocolate;">
-        <h1>BartCOM 2 (WS Protocol)</h1>
+        <h1>BartCOM 2 (WS Protocol)</h1><br>
+        <label for="serverLink" id="serverLinkLabel">Server:</label>
+        <input type="text" id="serverLink" name="serverLink" value="ws://68.42.180.50:8080">
+        <button type="button" id="connect" onclick="window.ws = new WebSocket(document.getElementById(serverLink).value);">Connect</button><br>
         <label for="user" id="userLabel">Username:</label>
         <input type="text" id="user" name="user" value="">
         <button type="button" id="login" onclick="login()">Go!</button>
