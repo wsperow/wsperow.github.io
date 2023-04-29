@@ -17,19 +17,20 @@
             };
             function connectToServer(serverAddress) {
                 window.ws = new WebSocket(serverAddress);
-                document.getElementById("userLabel").style.display = "block"
-                document.getElementById("user").style.display = "block"
-                document.getElementById("login").style.display = "block"
                 document.getElementById("serverLinkLabel").style.display = "none"
                 document.getElementById("serverLink").style.display = "none"
                 document.getElementById("connect").style.display = "none"
                 ws.onopen = function() {
                     alert("Connected to Server");
+                    document.getElementById("userLabel").style.display = "block"
+                    document.getElementById("user").style.display = "block"
+                    document.getElementById("login").style.display = "block"
                 };
                 ws.onmessage = function ({data}) {
                     //document.getElementById("chat").innerHTML += `<li>${data}</li>`;
                     document.body.innerHTML += "<br>" + data
                 };
+                
             };
         </script>
         <style>
