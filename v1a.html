@@ -15,24 +15,35 @@
                     ws.send(`${clientUsername} joined the chat`)
                 };
             };
-            window.ws = new WebSocket("ws://68.42.180.50:8080");
-            ws.onopen = function() {
-                alert("Connected to Server");
-            };
-            ws.onmessage = function ({data}) {
-                //document.getElementById("chat").innerHTML += `<li>${data}</li>`;
-                document.body.innerHTML += "<br>" + data
+            function connectToServer(serverAddress) {
+                window.ws = new WebSocket(serverAddress);
+                document.getElementById("userLabel").style.display = "block"
+                document.getElementById("user").style.display = "block"
+                document.getElementById("login").style.display = "block"
+                document.getElementById("serverLinkLabel").style.display = "none"
+                document.getElementById("serverLink").style.display = "none"
+                document.getElementById("connect").style.display = "none"
+                ws.onopen = function() {
+                    alert("Connected to Server");
+                };
+                ws.onmessage = function ({data}) {
+                    //document.getElementById("chat").innerHTML += `<li>${data}</li>`;
+                    document.body.innerHTML += "<br>" + data
+                };
             };
         </script>
+        <style>
+
+        </style>
     </head>
     <body style="background-color: chocolate;">
-        <h1>BartCOM 2 (WS Protocol)</h1><br>
+        <h1>BartCOM 2 (WS Protocol)</h1>
         <label for="serverLink" id="serverLinkLabel">Server:</label>
         <input type="text" id="serverLink" name="serverLink" value="ws://68.42.180.50:8080">
-        <button type="button" id="connect" onclick="window.ws = new WebSocket(document.getElementById(serverLink).value);">Connect</button><br>
-        <label for="user" id="userLabel">Username:</label>
-        <input type="text" id="user" name="user" value="">
-        <button type="button" id="login" onclick="login()">Go!</button>
+        <button type="button" id="connect" onclick="connectToServer(document.getElementById('serverLink').value)">Connect</button>
+        <label for="user" id="userLabel" style="display: none;">Username:</label>
+        <input type="text" id="user" name="user" style="display: none;">
+        <button type="button" id="login" onclick="login()" style="display: none;">Go!</button>
         <input type="text" id="messageBox" placeholder="Type something..." style="margin-top: 20px; display: none;">
         <button type="button" id="send" onclick="ws.send(clientUsername + ': ' + messageBox.value);" style="display: none;">Send</button><br>
         <ol id="chat"></ol>
