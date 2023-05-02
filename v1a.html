@@ -30,6 +30,9 @@
                     document.getElementById("chat").innerHTML += "<br>" + data;
                     //document.body.innerHTML += "<br>" + data
                 };
+                ws.onclose = function () {
+                    history.go(0)
+                };    
                 
             };
         </script>
