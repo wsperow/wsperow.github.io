@@ -11,6 +11,7 @@
                     document.getElementById("login").style.display = "none"
                     document.getElementById("messageBox").style.display = "block"
                     document.getElementById("send").style.display = "block"
+                    document.getElementById("chat").style.display = "flex"
                     window.clientUsername = document.getElementById("user").value
                     ws.send(`${clientUsername} joined the chat`)
                 };
@@ -49,6 +50,6 @@
         <button type="button" id="login" onclick="login()" style="display: none;">Go!</button>
         <input type="text" id="messageBox" placeholder="Type something..." onfocus=this.value='' style="margin-top: 20px; display: none;">
         <button type="button" id="send" onclick="ws.send(clientUsername + ': ' + document.getElementById('messageBox').value);" style="display: none;">Send</button><br>
-        <div id="chat" style="max-height: 80%; overflow: auto; display: flex; flex-direction: column-reverse; border-style: solid; border-color: red; border-width: 10px 5px;"></div>
+        <div id="chat" style="max-height: 80%; overflow: auto; display: none; flex-direction: column-reverse; border-style: solid; border-color: red; border-width: 10px 5px;"></div>
     </body>
 </html>
