@@ -11,7 +11,7 @@
                     document.getElementById("login").style.display = "none"
                     document.getElementById("messageBox").style.display = "block"
                     document.getElementById("send").style.display = "block"
-                    document.getElementById("chat").style.display = "flex"
+                    
                     window.clientUsername = document.getElementById("user").value
                     ws.send(`${clientUsername} joined the chat`)
                 };
@@ -26,6 +26,7 @@
                     document.getElementById("userLabel").style.display = "block"
                     document.getElementById("user").style.display = "block"
                     document.getElementById("login").style.display = "block"
+                    document.getElementById("chat").style.display = "flex"
                 };
                 ws.onmessage = function ({data}) {
                     document.getElementById("chat").innerHTML += "<br>" + data;
